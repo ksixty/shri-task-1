@@ -17,7 +17,6 @@
 	justify-content: center;
 	&__month { 
 		width: 30vw;
-    transition: all .15s ease-out;
 		max-width: 420px;
 		min-width: 310px;
     margin: 1em 0;
@@ -27,11 +26,11 @@
 		font-size: 1.5em;
 		font-weight: bold;
 		border-bottom: 2px solid #eee;
-		margin-bottom: 1em;
 		position: static;
 		position: sticky;
+		height: 48px;
 		top: -1px;
-		padding: .4em 20px .3em;
+		padding: .7em 20px .3em;
 		background: #fff;
 	}
 	&__event {
@@ -44,8 +43,12 @@
   box-shadow: 0 2px 10px #eee;
   border-top: 0;
 	display: block;
+	transition: border-color .2s;
 	&:hover {
-		cursor: pointer;
+		border-color: #ccc
+	}
+	&:hover &__pic--video {
+		opacity: .4;
 	}
 	&__header {
 		border-radius: 3px 3px 0 0;
@@ -68,8 +71,14 @@
     display: flex;
   }
   &__date {
-  	width: 42px;
+  	width: 46px;
   	flex-shrink: 0;
+  	&--today {
+  		color: #ED1E00;
+  	}
+  	&--obsolete {
+  		color: #999;
+  	}
   }
 	&__date-number {
 		font-weight: 300;
@@ -85,13 +94,29 @@
 		font-feature-settings: "pnum";
 	}
 	&__date-week {
-		margin: -5px 5px 0 10px;
+		margin: 0 5px 0 10px;
     text-transform: uppercase;
-    letter-spacing: .2em;
+    line-height: 1em;
+    letter-spacing: .1em;
     font-size: .75em;
+	}
+	&__video {
+		display: block;
+    line-height: 0;
+		text-align: center;
+		font-size: 1em;
+		color: #fff;
+		padding: 3.5em 0 0 0;
+		font-weight: bold;
+		background: #000;
 	}
 	&__pic {
 		width: 100%;
+		&--video {
+			opacity: 1;
+			transition: opacity .2s;
+			margin-top: -3.5em;
+		}
 	}
 	&__school {
 		padding: 0 0 1px 10px;
@@ -100,10 +125,30 @@
 		letter-spacing: .13em;
 		text-transform: uppercase;
 	}
+	&__icon {
+		width: 15px;
+		height: 18px;
+		margin: -2px 5px 0;
+		display: inline-block;
+		vertical-align: middle;
+		transition: fill .2s;
+	}
 	&__name {
 		padding: .35em 12px .4em;
 		font-size: 1.2em;
 		line-height: 1.3em;
+		transition: color .2s;
+		&--link {
+			cursor: pointer;
+			&:hover {
+				color: #ED1E00;
+				transition: none;
+			}
+			&:hover .event__icon {
+				fill: #ED1E00;
+				transition: none;
+			}
+		}
 	}
 }
 
@@ -111,12 +156,20 @@
 	padding: 0 12px 1.25em 12px;
 	display: flex;
 	flex-wrap: wrap;
+	&__icon {
+		width: 10px;
+		height: 10px;
+		display: inline;
+	}
 	&__item {
-		font-size: .9em;
-		line-height: 1.3em;
+		font-size: .8rem;
+		line-height: 1.35em;
+		margin: 1px 0 0;
+		display: inline-block;
 		&--lecturer {
       border-bottom: 1px solid rgba(0, 0, 0, .1);
       transition: .25s ease;
+      cursor: pointer;
       &:hover {
         color: #ED1E00;
         border-color: none;
@@ -129,7 +182,8 @@
 		&--company {
 			margin-right: 1.4em;
 		}
-		&--place:before {
+		&--venue {
+			margin-right: .5em;
 		}
 	}
 }

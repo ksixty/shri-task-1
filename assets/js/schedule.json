@@ -34,17 +34,7 @@
         "bio": "Разрабатываю приложения для Android с 2010 года. В 2014 делал высоконагруженное финансовое приложение. Тогда же начал осваивать АОП, внедряя язык в продакшн. В 2015 разрабатывал инструменты для Android Studio, позволяющие использовать aspectJ в своих проектах. В Яндексе занят на проекте Авто.ру.",
         "pic": "https://avatars.mds.yandex.net/get-yaevents/198307/9d9a8672b6da11e687ef002590c62a5c/big_c"
       },
-      "zagaevsky": {
-        "name": "Денис Загаевский",
-        "bio": "Окончил факультет ВМК МГУ им. Ломоносова. Занимается разработкой приложений и игр с 2011 года, в 2012-м сконцентрировался на мобильных платформах Android и iOS. В Яндексе разрабатывает приложения для Android.",
-        "pic": "https://avatars.mds.yandex.net/get-yaevents/197753/fc1d16442d6a7cbe12b154032f8a0019/big_c"
-      },
-      "ten": {
-        "name": "Антон Тен",
-        "bio": "В Яндексе с 2014 года. Ведущий дизайнер продукта в сервисах Переводчик, Расписания и Видео.",
-        "pic": "https://avatars.mds.yandex.net/get-yaevents/204268/07bb5f8ab6dc11e687ef002590c62a5c/big_c"
-      },
-      "prokopuk": {
+      "krijn": {
         "name": "Rijshouwer Krijn",
         "company": "Framer",
         "bio": "I like to create and work on products that have a positive impact in the world. The thing that attracts me most in doing what I do at Framer, and did before at other companies, is changing the way a lot of people work, live and consume on a daily basis with just the push of a button",
@@ -55,94 +45,98 @@
     "venues": {
       "skit": {
         "name": "Синий кит",
+        "lecturer": "prokopuk",
         "capacity": "150"
       },
       "rgus": {
         "name": "Розовый гусь",
+        "lecturer": "matsukov",
         "capacity": "100"
       },
       "bnil": {
         "name": "Чёрное ничто",
+        "lecturer": "dushkin",
         "capacity": "40"
       },
       "ffff": {
         "name": "Белая смерть",
+        "lecturer": "krijn",
         "capacity": "70"
       }
     }
   },
   "schedule": {
     "0": {
-      "start": 1499979600000,
-      "end": 1499979603600,
-      "school": "shri",
+      "start": 149304754400,
+      "end": 149304757400,
+      "school": "mdev",
       "venue": "bnil",
       "name": "Лекция 1. Адаптивная вёрстка",
-      "lecturer": "dushkin",
-      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png"
+      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png",
+      "video": "https://www.youtube.com/watch?v=ovvsKF5-8Ws"
     },
     "1": {
-      "start": 1501016400000,
+      "start": 1501016443200,
       "end": 1501016405400,
       "school": "shri",
       "venue": "skit",
       "name": "Лекция 2. Работа с сенсорным пользовательским вводом",
-      "lecturer": "dushkin",
-      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png"
+      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png",
+      "video": "https://www.youtube.com/watch?v=TgpPPh_uQwE"
     },
     "2": {
-      "start": 1501621200000,
-      "end": 1501621203600,
+      "start": 1501621243200,
+      "end": 1501621246800,
       "school": "mdes",
       "venue": "skit",
       "name": "Лекция 3. Мультимедиа: возможности браузера",
-      "lecturer": "prokopuk",
-      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png"
+      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png",
+      "video": "https://www.youtube.com/watch?v=gFR43zd6KyY"
     },
     "3": {
-      "start": 1502485200000,
-      "end": 1502485207200,
+      "start": 1502485243200,
+      "end": 1502485247200,
       "school": "shri",
       "venue": "rgus",
       "name": "Лекция 4. Нативные приложения на веб-технологиях",
-      "lecturer": "prokopuk",
-      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png"
+      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png",
+      "video": "https://www.youtube.com/watch?v=1I8xfC85Y24"
     },
     "4": {
-      "start": 1503435600000,
-      "end": 1503435603600,
+      "start": 1503435683400,
+      "end": 1503435686600,
       "school": "shri",
       "venue": "rgus",
       "name": "Лекция 5. Клиентская оптимизация: базовые знания и лучшие практики",
-      "lecturer": "prokopuk",
-      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png"
+      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png",
+      "video": "https://www.youtube.com/watch?v=WxsrKLF-fa8"
     },
     "5": {
-      "start": 1504213200000,
-      "end": 1504213203600,
+      "start": 1504213223200,
+      "end": 1504213227600,
       "school": "all",
       "venue": "skit",
       "name": "Лекция 6. Клиентская оптимизация: мобильные устройства и инструменты",
-      "lecturer": "dushkin",
-      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png"
+      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png",
+      "video": "https://www.youtube.com/watch?v=Y5450Ns5L4M"
     },
     "6": {
-      "start": 1505682000000,
-      "end": 1505682001800,
+      "start": 150568243200,
+      "end": 150568246800,
       "school": "all",
       "venue": "skit",
       "name": "Лекция 7. Инфраструктура веб-проектов",
-      "lecturer": "dushkin",
-      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png"
+      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png",
+      "video": "https://www.youtube.com/watch?v=VZAcd2svW7w"
     },
     "7": {
-      "start": 1506459600000,
-      "end": 1506459605400,
+      "start": 1506459663200,
+      "end": 1506459669600,
       "school": "mdev",
       "venue": "bnil",
       "name": "Лекция 8. Инструменты разработки мобильного фронтенда",
-      "lecturer": "dushkin",
-      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png"
+      "pic": "http://vanya-klimenko.github.io/shri-task-1/assets/img/shri-1.png",
+      "video": "https://www.youtube.com/watch?v=t8zwdpkSRWs"
     }
   }
 }

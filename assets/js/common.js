@@ -1,4 +1,4 @@
-const SCHEDULE_LINK = '//vanyaklimenko.ru/shri-task-1/assets/js/schedule.json'
+const SCHEDULE_LINK = '//vanya-klimenko.github.io/shri-task-1/assets/js/schedule.json'
 const SCHEDULE_DOM = document.querySelector('#schedule')
 
 const redux = {

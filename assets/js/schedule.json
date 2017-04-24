@@ -51,24 +51,24 @@
         "pic": "https://avatars.mds.yandex.net/get-yaevents/198307/447ca5b4b6dc11e687ef002590c62a5c/big_c",
         "company": "Framer"
       }
-    }
-  },
-  "venues": {
-    "skit": {
-      "name": "Синий кит",
-      "capacity": "150"
     },
-    "rgus": {
-      "name": "Розовый гусь",
-      "capacity": "100"
-    },
-    "bnil": {
-      "name": "Чёрное ничто",
-      "capacity": "40"
-    },
-    "ffff": {
-      "name": "Белая смерть",
-      "capacity": "70"
+    "venues": {
+      "skit": {
+        "name": "Синий кит",
+        "capacity": "150"
+      },
+      "rgus": {
+        "name": "Розовый гусь",
+        "capacity": "100"
+      },
+      "bnil": {
+        "name": "Чёрное ничто",
+        "capacity": "40"
+      },
+      "ffff": {
+        "name": "Белая смерть",
+        "capacity": "70"
+      }
     }
   },
   "schedule": {

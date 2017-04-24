@@ -6,7 +6,6 @@ const redux = {
         schools: {},
         lecturers: {}
     },
-    venues: {},
     schedule: {}
 }
 
@@ -26,7 +25,6 @@ fetchSchedule().then(json => {
     redux.general.schools = general.schools
     redux.general.lecturers = general.lecturers
 
-    redux.venues = venues
     redux.schedule = schedule
 
     renderLectures()

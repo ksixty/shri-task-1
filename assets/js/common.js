@@ -4,7 +4,8 @@ const SCHEDULE_DOM = document.querySelector('#schedule')
 const redux = {
     general: {
         schools: {},
-        lecturers: {}
+        lecturers: {},
+        venues: {}
     },
     venues: {},
     schedule: {}
@@ -25,8 +26,8 @@ fetchSchedule().then(json => {
 
     redux.general.schools = general.schools
     redux.general.lecturers = general.lecturers
+    redux.general.venues = general.venues
 
-    redux.venues = venues
     redux.schedule = schedule
 
     renderLectures()
@@ -78,9 +79,9 @@ const renderLectures = filters => {
     // })
 
     lecturesArray.forEach(lecture => {
-        const { date, school } = lecture
+        const { start, end, school, venue } = lecture
 
-        const month = new Date(date).getMonth()
+        const month = new Date(start).getMonth()
         const domLecture = renderLecture(lecture)
         const curr = monthHashTable[month]
         curr.push(domLecture)
@@ -116,9 +117,12 @@ const getLecturer = _lecturer => {
 
 const getSchool = school => {
     const { schools } = redux.general
-    
-    if (!school) return schools.all
     return schools[school]
+}
+
+const getVenue = venue => {
+    const { venues } = redux.general
+    return venues[venue] 
 }
 
 const renderLecture = lecture => {
@@ -129,7 +133,7 @@ const renderLecture = lecture => {
     `
         <div class="schedule__event event">
             <div class="event__header event__header--${school || 'all'}">
-                <div class="event__school">${getSchool(school)}</div>
+                <div class="event__school">${getSchool(school).name}</div>
             </div>
             <img class="event__pic" src="${pic}">
             <div class="event__title">
@@ -142,7 +146,7 @@ const renderLecture = lecture => {
                     <div class="event__meta meta">
                         <div class="meta__item meta__item--lecturer">${_lecturer.name}</div>
                         <div class="meta__item meta__item--company">${_lecturer.company}</div>
-                        <div class="meta__item meta__item--place">${venue}</div>
+                        <div class="meta__item meta__item--place">${getVenue(venue).name}</div>
                     </div>
                 </div>
             </div>

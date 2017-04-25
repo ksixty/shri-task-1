@@ -1,6 +1,9 @@
 const SCHEDULE_LINK = '//vanyaklimenko.ru/schedule.json'
 const SCHEDULE_DOM = document.querySelector('#schedule')
+let SCHOOL_FILTERS = []
+let LECTURER_FILTERS = []
 
+// Редакс - это шутка
 const redux = {
     general: {
         schools: {},
@@ -64,12 +67,30 @@ const isToday = (eventStart) => {
         else if (today.getTime() > start.getTime()) return 'event__date--obsolete'
 }
 
-// const filterLectures = (lectures, filters) => {
-//     return lectures
-// }
+const toggleFilter = (newFilter, filtersArray) => {
+    const filterIndex = filtersArray.indexOf(newFilter)
 
-const renderLectures = filters => {
+    if (filterIndex > -1) {
+        document.getElementById(newFilter).classList.remove('tabs__opiton--chosen');
+        filtersArray.splice(filterIndex, 1)
+    } else {
+        document.getElementById(newFilter).classList.add('tabs__opiton--chosen');
+        filtersArray.push(newFilter);
+    }
+
+    renderLectures()
+}
+
+const hideSpinner = () => {
+    document.querySelector('.spinner').classList.add('spinner--hidden')
+}
+
+const renderLectures = () => {
+    SCHEDULE_DOM.innerHTML = ''
+    SCHEDULE_DOM.classList.add('schedule--hidden')
+
     const lectures = redux.schedule
+    const venues = redux.general.venues
     if (!lectures) return false
 
     const monthHashTable = {}
@@ -84,9 +105,15 @@ const renderLectures = filters => {
         lecturesArray.push(lecture)
     }
 
-    if (filters) {
+    if (SCHOOL_FILTERS.length > 0) {
         lecturesArray = lecturesArray.filter(lecture => {
-            return lecture.school === filters
+            return (SCHOOL_FILTERS.indexOf(lecture.school) > -1)
+        })
+    }
+
+    if (LECTURER_FILTERS.length > 0) {
+        lecturesArray = lecturesArray.filter(lecture => {
+            return (LECTURER_FILTERS.indexOf(venues[lecture.venue].lecturer) > -1)
         })
     }
 
@@ -100,24 +127,40 @@ const renderLectures = filters => {
         monthHashTable[month] = curr
     })
 
+    if (lecturesArray.length == 0) {
+        const emptyDOM = document.createElement('div')
+        emptyDOM.innerHTML = 
+        `
+            <div class="schedule__error error">
+                <svg class="error__pic" width="51px" height="86px" viewBox="352 259 51 86" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M375.556,326.099 C375.556,322.872317 375.838331,320.028846 376.403,317.5685 C376.967669,315.108154 377.733995,312.91001 378.702,310.974 C379.670005,309.03799 380.799327,307.283508 382.09,305.7105 C383.380673,304.137492 384.751993,302.66534 386.204,301.294 C387.656007,299.92266 389.107993,298.490841 390.56,296.9985 C392.012007,295.506159 393.302661,293.953341 394.432,292.34 C395.561339,290.726659 396.46883,288.992343 397.1545,287.137 C397.84017,285.281657 398.183,283.305344 398.183,281.208 C398.183,278.223318 397.638505,275.662177 396.5495,273.5245 C395.460495,271.386823 394.008509,269.612174 392.1935,268.2005 C390.378491,266.788826 388.301345,265.760337 385.962,265.115 C383.622655,264.469663 381.202679,264.147 378.702,264.147 C375.071982,264.147 371.88568,264.751994 369.143,265.962 C366.40032,267.172006 364.121509,268.865989 362.3065,271.044 C360.491491,273.222011 359.120171,275.783152 358.1925,278.7275 C357.264829,281.671848 356.801,284.878316 356.801,288.347 L352.203,288.347 C352.203,284.071645 352.787827,280.159351 353.9575,276.61 C355.127173,273.060649 356.841322,270.015513 359.1,267.4745 C361.358678,264.933487 364.161817,262.97734 367.5095,261.606 C370.857183,260.23466 374.708978,259.549 379.065,259.549 C382.291683,259.549 385.336819,259.992662 388.2005,260.88 C391.064181,261.767338 393.584989,263.098324 395.763,264.873 C397.941011,266.647676 399.65516,268.90632 400.9055,271.649 C402.15584,274.39168 402.781,277.577982 402.781,281.208 C402.781,283.789346 402.478503,286.068157 401.8735,288.0445 C401.268497,290.020843 400.461838,291.815659 399.4535,293.429 C398.445162,295.042341 397.295673,296.514493 396.005,297.8455 C394.714327,299.176507 393.38334,300.487327 392.012,301.778 C390.64066,302.988006 389.249174,304.258493 387.8375,305.5895 C386.425826,306.920507 385.155339,308.513657 384.026,310.369 C382.896661,312.224343 381.969004,314.422487 381.243,316.9635 C380.516996,319.504513 380.154,322.549649 380.154,326.099 L375.556,326.099 Z M374.03,340.622 C374.03,338.409547 375.828049,336.616 378.036,336.616 L378.036,336.616 C380.248453,336.616 382.042,338.414049 382.042,340.622 L382.042,340.622 C382.042,342.834453 380.243951,344.628 378.036,344.628 L378.036,344.628 C375.823547,344.628 374.03,342.829951 374.03,340.622 L374.03,340.622 Z" id="?" stroke="none"></path></svg>
+                <div class="error__hero">Таких лекций нет</div>
+                <div class="error__text">Попробуйте изменить критерии</div>
+            </div>
+        `
+        SCHEDULE_DOM.appendChild(emptyDOM)
+    }
+
+    hideSpinner()
+
     for (const monthNumber in monthHashTable) {
         const lectures = monthHashTable[monthNumber]
         if (lectures.length > 0) {
 
             const monthDOM = document.createElement('div')
             monthDOM.innerHTML =
-             `
+            `
                 <div class="schedule__month month month--expanded">
                     <div class="schedule__title">${getMonth(monthNumber)}</div>
                     ${lectures.join('')}
                 </div>
-             `
+            `
             SCHEDULE_DOM.appendChild(monthDOM)
         }
     }
+    SCHEDULE_DOM.classList.remove('schedule--hidden')
 }
 
-const getLecturer = _lecturer => {
+const getLecturer = _lecturer => { 
     const { lecturers } = redux.general
     const lecturer = lecturers[_lecturer]
     return {
@@ -150,6 +193,7 @@ const renderVideo = (lecture, obsolete) => {
 }
 
 const renderLecture = lecture => {
+
     const { school, name, lecturer, pic, start, end, venue, id, video } = lecture
     const _lecturer = getLecturer(getVenue(venue).lecturer)
     const obsolete = (isToday(start) === 'event__date--obsolete')

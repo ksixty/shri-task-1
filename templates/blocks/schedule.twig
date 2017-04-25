@@ -1,3 +1,17 @@
-<div class="schedule" id="schedule">
+<div class="filter" id="schedule-filter">
+	<div class="filter__tabs tabs tabs--school">
+		<div class="tabs__opiton" id="shri" onclick="toggleFilter('shri', SCHOOL_FILTERS)"><span class="abbr">ШРИ</span></div>
+		<div class="tabs__opiton" id="mdev" onclick="toggleFilter('mdev', SCHOOL_FILTERS)"><span class="abbr">ШМР</span></div>
+		<div class="tabs__opiton" id="mdes" onclick="toggleFilter('mdes', SCHOOL_FILTERS)"><span class="abbr">ШМД</span></div>
+		<div class="tabs__opiton" id="all" onclick="toggleFilter('all', SCHOOL_FILTERS)">Поточные</div>
+	</div>
+	<div class="filter__tabs tabs tabs--lecturers">
+		<div class="tabs__opiton" id="dushkin" onclick="toggleFilter('dushkin', LECTURER_FILTERS)">Душкин</div>
+		<div class="tabs__opiton" id="prokopuk" onclick="toggleFilter('prokopuk', LECTURER_FILTERS)">Прокопюк</div>
+		<div class="tabs__opiton" id="matsukov" onclick="toggleFilter('matsukov', LECTURER_FILTERS)">Мацуков</div>
+		<div class="tabs__opiton" id="krijn" onclick="toggleFilter('krijn', LECTURER_FILTERS)">Krijn</div>
+	</div>
+</div>
+<div class="schedule schedule--hidden" id="schedule">
 
 </div>

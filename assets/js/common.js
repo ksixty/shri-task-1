@@ -1,4 +1,4 @@
-const SCHEDULE_LINK = 'http://vanya-klimenko.github.io/schedule.json'
+const SCHEDULE_LINK = 'https://vanyaklimenko.ru/schedule.json'
 const SCHEDULE_DOM = document.querySelector('#schedule')
 let SCHOOL_FILTERS = []
 let LECTURER_FILTERS = []

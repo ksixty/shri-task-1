@@ -17,7 +17,7 @@
 	}
 	&--hidden {
 		opacity: 0;
-		transform: scale(3);
+		transform: scale(2);
 		visibility: hidden;
 	}
 }
@@ -238,13 +238,25 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	&__select {
+		border: none;
+		user-select: none;
+		outline: none;
+		font-family: $helvetica;
+		font-size: 1em;
+		padding: 0 10px 0; 
+		margin: .25em 12px;
+		height: 25px;
+		min-width: 120px;
+		box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .2);
+		transition: all .1s;
+		border-radius: 4px;
+	}
 }
 
 .tabs {
-	border-radius: 4px;
 	margin: .25em 12px;
 	background: #f7f7f7;
-	border-radius: 3px;
 	clear: both;
 	&__opiton {
 		float: left;
@@ -252,7 +264,7 @@
 		padding: 2px 13px 3px; 
 		margin: 0;
 		box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .2);
-		cursor: pointer;
+		cursor: default;
 		transition: all .1s;
 		&:hover {
 			background: #ffeba0;
@@ -269,11 +281,11 @@
 		}
 		&:first-child {
 			border: none;
-			border-radius: 3px 0 0 3px;
+			border-radius: 4px 0 0 4px;
 		}
 		&:last-child {
 			border: none;
-			border-radius: 0 3px 3px 0;
+			border-radius: 0 4px 4px 0;
 		}
 	}
 }

@@ -1,4 +1,4 @@
-const SCHEDULE_LINK = '//vanyaklimenko.ru/schedule.json'
+const SCHEDULE_LINK = 'http://vanya-klimenko.github.io/schedule.json'
 const SCHEDULE_DOM = document.querySelector('#schedule')
 let SCHOOL_FILTERS = []
 let LECTURER_FILTERS = []
@@ -231,28 +231,28 @@ const renderLecture = lecture => {
     return lectureHTML
 }
 
-// const showLecturer = id => {
-//     const { lecturers } = redux.general
-//     const lecturer = lecturers[id]
-//     const lecturerMeta = {
-//         name: lecturer.name,
-//         company: lecturer.company || 'Яндекс',
-//         bio: lecturer.bio
-//     }
-//     const lecturerHTML =
-//     `
-//         <div class="lecturer">
-//             <div></div>
-//         </div>
-//     `
-//     const lecturerDOM = document.createElement('div')
-//     lecturerDOM.innerHTML =
-//      `
-//         <div class="schedule__month month month--expanded">
-//             <div class="schedule__title">${getMonth(monthNumber)}</div>
-//             ${lectures.join('')}
-//         </div>
-//      `
-//     body.appendChild(monthDOM)
+const showLecturer = id => {
+    const { lecturers } = redux.general
+    const lecturer = lecturers[id]
+    const lecturerMeta = {
+        name: lecturer.name,
+        company: lecturer.company || 'Яндекс',
+        bio: lecturer.bio
+    }
+    const lecturerHTML =
+    `
+        <div class="lecturer">
+            <div></div>
+        </div>
+    `
+    const lecturerDOM = document.createElement('div')
+    lecturerDOM.innerHTML =
+     `
+        <div class="schedule__month month month--expanded">
+            <div class="schedule__title">${getMonth(monthNumber)}</div>
+            ${lectures.join('')}
+        </div>
+     `
+    body.appendChild(monthDOM)
 
-// }
+}

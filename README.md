@@ -10,7 +10,7 @@
 6. Резиниться и быть красивым как на телефоне, так и на компьютере
 
 ## По порядку
-Вся логика находится в файле `[assets/js/common.js](https://github.com/vanya-klimenko/shri-task-1/blob/master/assets/js/common.js)`.
+Вся логика находится в файле [`assets/js/common.js`](https://github.com/vanya-klimenko/shri-task-1/blob/master/assets/js/common.js).
 Первым делом мною была создана модель хранилища расписания, которое представляет собой упорядоченный файл, который имеет примерно следующую структуру:
 ```
 - general
@@ -27,7 +27,7 @@
   - 0: start, end, school, mdev, venue, name, pic, video, id
     ...
 ```
-Файл фетчится откуда угодно, так что не имеет значения, где он хранится. Я разместил его на своём сервере, чтобы иметь возможность редактировать данные и чинить что-то на лету. Можете посмотреть на него → [`http://vanyaklimenko.ru/schedule.json`](http://vanyaklimenko.ru/schedule.json). Затем, разумеется, были описаны методы парсинга и обработки этого JSON-файла — данные заносятся в объект с забавным именем redux → [`common.js:4`](https://github.com/vanya-klimenko/shri-task-1/blob/master/assets/js/common.js#L4).
+Файл фетчится откуда угодно, так что не имеет значения, где он хранится. Я разместил его на своём сервере, чтобы иметь возможность редактировать данные и чинить что-то на лету. Можете посмотреть на него → [`http://vanyaklimenko.ru/schedule.json`](http://vanyaklimenko.ru/schedule.json). Затем, разумеется, были описаны методы парсинга и обработки этого JSON-файла — данные заносятся в объект с забавным именем [`redux`](https://github.com/vanya-klimenko/shri-task-1/blob/master/assets/js/common.js#L4).
 
 Для рендера всего этого был реализованы метод [`renderLectures`](https://github.com/vanya-klimenko/shri-task-1/blob/master/assets/js/common.js#L71) и [`renderLecture`](https://github.com/vanya-klimenko/shri-task-1/blob/master/assets/js/common.js#L152). Работают они так:
 1. Первый берёт данные из объекта `redux`
@@ -46,7 +46,7 @@
   
 <img src="http://vanyaklimenko.ru/i/shri-1.png" width="307">  
 
-Определение лекций реализовано довольно просто. Проверка на сегодняшие лекции происходит путём сравнения только номера дня в месяце и номера дня сегодняшнего. Проверка на прошедшие — просто сравнением таймштампа начала лецкии → [`https://github.com/vanya-klimenko/shri-task-1/blob/master/assets/js/common.js#L61`](common.js:61).
+Определение лекций реализовано довольно просто. Проверка на сегодняшие лекции происходит путём сравнения только номера дня в месяце и номера дня сегодняшнего. Проверка на прошедшие — просто сравнением таймштампа начала лецкии → [`common.js:60`](https://github.com/vanya-klimenko/shri-task-1/blob/master/assets/js/common.js#L60`).
 
 В зависимости от результатов проверки, ХТМЛ-элементам присваиваются разные ЦСС-классы, и рендерятся — либо не рендерятся — ссылки на видео.
 

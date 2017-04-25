@@ -136,7 +136,7 @@ const renderLectures = () => {
                 <div class="error__hero">Таких лекций нет</div>
                 <div class="error__text">Попробуйте изменить критерии</div>
             </div>
-        `
+        `;
         SCHEDULE_DOM.appendChild(emptyDOM)
     }
 
@@ -153,7 +153,7 @@ const renderLectures = () => {
                     <div class="schedule__title">${getMonth(monthNumber)}</div>
                     ${lectures.join('')}
                 </div>
-            `
+            `;
             SCHEDULE_DOM.appendChild(monthDOM)
         }
     }
@@ -226,7 +226,7 @@ const renderLecture = lecture => {
                 </div>
             </div>
         </div>
-    `
+    `;
 
     return lectureHTML
 }

@@ -213,7 +213,7 @@ const renderLecture = lecture => {
                 <div class="event__text">
                     ${obsolete ? '<div class="event__name event__name--link" onclick="window.open(\''+video+'\')">'+name+'<svg class="event__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 508.492 508.492"><path d="M504.15 158.24c-2.829-33.848-23.011-76.532-64.487-78.058-115.815-7.787-253.02-9.916-370.933 0-36.582 4.1-61.658 48.659-64.391 82.507-5.784 71.097-5.784 111.557 0 182.654 2.765 33.848 27.206 78.662 64.455 83.365 119.311 7.787 255.849 8.899 370.933 0 36.105-6.261 61.69-49.517 64.455-83.365 5.752-71.129 5.752-116.006-.032-187.103zM190.647 344.199V161.926l158.912 91.152-158.912 91.121z"/></svg></div>' : '<div class="event__name">'+name+'</div>'}
                     <div class="event__meta meta">
-                        <div class="meta__item meta__item--lecturer" onclick="showLecturer(${getVenue(venue).lecturer})">${_lecturer.name}</div>
+                        <div class="meta__item meta__item--lecturer" onclick="showLecturer(\'${getVenue(venue).lecturer}\')">${_lecturer.name}</div>
                         <div class="meta__item meta__item--company">${_lecturer.company}</div>
                         <div class="meta__item meta__item--location">
                             <div class="meta__item meta__item--venue">
@@ -239,19 +239,11 @@ const showLecturer = id => {
         company: lecturer.company || 'Яндекс',
         bio: lecturer.bio
     }
-    const lecturerHTML =
-    `
-        <div class="lecturer">
-            <div></div>
-        </div>
-    `
+
     const lecturerDOM = document.createElement('div')
     lecturerDOM.innerHTML =
      `
-        <div class="schedule__month month month--expanded">
-            <div class="schedule__title">${getMonth(monthNumber)}</div>
-            ${lectures.join('')}
-        </div>
+
      `
     body.appendChild(monthDOM)
 

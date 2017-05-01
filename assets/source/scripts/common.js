@@ -1,5 +1,6 @@
 const SCHEDULE_LINK = 'https://vanyaklimenko.ru/schedule.json'
 const SCHEDULE_DOM = document.querySelector('#schedule')
+
 let SCHOOL_FILTERS = []
 let LECTURER_FILTERS = []
 
@@ -234,17 +235,37 @@ const renderLecture = lecture => {
 const showLecturer = id => {
     const { lecturers } = redux.general
     const lecturer = lecturers[id]
-    const lecturerMeta = {
-        name: lecturer.name,
-        company: lecturer.company || 'Яндекс',
-        bio: lecturer.bio
-    }
+    const body = document.querySelector('body')
 
     const lecturerDOM = document.createElement('div')
     lecturerDOM.innerHTML =
      `
-
+            <div class="schedule__lecturer lecturer">
+                <div class="lecturer__wrapper">
+                    <div class="lecturer__window window">
+                    <div class="window__close" onclick="hideLecturer()">
+                        <svg width="12px" height="10px" viewBox="0 0 12 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs></defs><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Group" transform="translate(1.000000, 0.000000)" stroke="#000000"><path d="M0,0 L9.89949494,9.89949494" id="Path"></path><path d="M0.100505063,0 L10,9.89949494" id="Path-Copy" transform="translate(5.050253, 4.949747) scale(-1, 1) translate(-5.050253, -4.949747) "></path></g></g></svg>
+                    </div>
+                    <div class="lecturer__id">
+                        <img class="lecturer__pic" src="${lecturer.pic}">
+                        <div class="lecturer__title">
+                            <div class="lecturer__name">${lecturer.name}</div>
+                            <div class="lecturer__company">${lecturer.company || 'Яндекс'}</div>
+                        </div>
+                </div>
+                <div class="lecturer__bio">${lecturer.bio}</div>
+                </div>
+            </div>
+            </div>
      `
-    body.appendChild(monthDOM)
 
+    body.appendChild(lecturerDOM)
+    setTimeout(() => document.querySelector('.schedule__lecturer').style.opacity = 1, 100);
+}
+
+const hideLecturer = () => {
+    const lecturerDOM = document.querySelector('.schedule__lecturer')
+
+    lecturerDOM.style.opacity = 0;
+    setTimeout(() => lecturerDOM.remove(), 400);
 }

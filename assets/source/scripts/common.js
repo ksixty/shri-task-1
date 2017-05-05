@@ -64,7 +64,7 @@ const getTime = time => {
 const isToday = (eventStart) => {
     const today = new Date()
     const start = new Date(eventStart)
-    if (today.getDate() == start.getDate() && today.getMonth() == start.getMonth()) return 'event__date--today'
+    if (today.getDate() == start.getDate() && today.getMonth() == start.getMonth() && today.getFullYear() == start.getFullYear()) return 'event__date--today'
         else if (today.getTime() > start.getTime()) return 'event__date--obsolete'
 }
 

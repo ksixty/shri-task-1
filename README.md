@@ -10,7 +10,7 @@
 6. Резиниться и быть красивым как на телефоне, так и на компьютере
 
 ## По порядку
-Вся логика находится в файле [`assets/js/common.js`](https://github.com/vanya-klimenko/shri-task-1/blob/master/assets/js/common.js).
+Вся логика находится в файле [`assets/js/common.js`](https://github.com/vanya-klimenko/shri-task-1/blob/master/assets/js/scripts.js).
 Первым делом мною была создана модель хранилища расписания, которое представляет собой упорядоченный файл, который имеет примерно следующую структуру:
 ```
 general
